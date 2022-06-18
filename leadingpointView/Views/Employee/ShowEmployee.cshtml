@@ -1,0 +1,47 @@
+﻿@model vmEmployeeProject
+@{ 
+    Layout = "~/Views/Shared/LayoutViewPage.cshtml";
+}
+        <div class="row title">
+            <div class="col-lg-3">
+                <h4>Employee for @Model.project.Name project</h4>
+            </div>
+            <div class="col-lg-offset-6 col-lg-1">
+                <a asp-action="NewEmployee" asp-route-project_Id=@Model.project.Id> <label class="btn btn-primary" style="margin-top:10px;margin-bottom:10px">Create</label></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-active table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Salary</th>
+                            <th>Position</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Employee item in Model.liemployees)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.FName</td>
+                                <td>@item.LName</td>
+                                <td>@item.Salary</td>
+                                <td>@item.Position.Name</td>
+                                <td><a asp-action="EmployeeDetails" asp-route-id=@item.Id><span class="glyphicon glyphicon-info-sign" style=" font-size: 17px; margin-right: 10px;"></span></a><a asp-action="Edit" asp-route-id=@item.Id> <span class="glyphicon glyphicon-cog " style=" font-size: 17px; margin-right: 10px;"></span></a><a asp-action="delete" asp-route-id=@item.Id><span class="	glyphicon glyphicon-trash" style="font-size: 17px; margin-right: -10px;"></span></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-offset-9 col-lg-1 ">
+                <a asp-action="index" asp-controller="Project"> <label class="btn btn-danger" style="margin-top:10px">Back</label></a>
+            </div>
+        </div>

@@ -1,0 +1,210 @@
+﻿@model VMEmployee
+@{
+    Layout = "~/Views/Shared/LayoutViewPage.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        debugger
+        var x = $("#emp").val()
+        console.log(x);
+        if (x == "0") {
+            $("input").each(function () {
+                $(this).prop("disabled", true)
+            })
+            $("select").each(function () {
+                $(this).prop("disabled", true)
+            })
+            $("#upload").hide()
+            $(".img").show()
+        }
+        else {
+            $("input").each(function () {
+                $(this).prop("disabled", false)
+            })
+            $("select").each(function () {
+                $(this).prop("disabled", false)
+            })
+            $("#upload").show()
+            $("#project_Name").prop("disabled", true)
+        }
+        $.ajax({
+            type: 'get',
+            url: '/leadingpointView/Employee/Loadcity',
+            success: function (data) {
+                $.each(data, function (k, v) {
+                    $("#ddlCity").append("<option value=" + v.id + ">" + v.name + "</option>")
+                })
+            },
+            error: function () {
+                alert("Error")
+            }
+        })
+        $("#ddlCountry").change(function () {
+            debugger
+            var country_Id = $(this).val();
+            $.ajax({
+                type: 'get',
+                url: '/leadingpointView/Employee/Loadcitybyid?country_id=' + country_Id,
+                success: function (data) {
+                    $("#ddlCity").empty()
+
+                    $.each(data, function (k, v) {
+                        $("#ddlCity").append("<option value=" + v.id + ">" + v.name + "</option>")
+                    })
+                },
+                error: function () {
+                    alert("Error")
+
+                }
+            })
+
+        })
+    })
+</script>
+<input type="hidden" value=@ViewData["emp"] id="emp" />
+<div class="row title">
+    <div class="col-lg-12">
+
+        @if (ViewData["emp"] == "1")
+        {
+            <h4>Add New Employee</h4>
+        }
+        else
+        {
+            if (ViewData["emp"] == "0")
+            {
+                <h4>Employee Details </h4>
+            }
+            else
+            {
+                <h4>Edit Employee </h4>
+            }
+        }
+    </div>
+</div>
+@if (ViewData["emp"] != "1")
+{
+    <div class="row">
+        <div class="col-lg-12">
+    <img src=@Model.employee.ImagePath id="img" style="width: 60px ;margin-bottom:15px;" />
+            </div>
+        </div>
+}
+<form method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-lg-2">
+            <input type="file" style="display:none" id="Image" asp-for="employee.Image" />
+            <label for="Image" class="btn btn-primary" id="upload">Upbload Image</label>
+            @if (ViewData["emp"] == "2")
+            {
+                <input type="hidden" asp-for="employee.ImagePath" />
+            }
+        </div>
+    </div>
+    <input type="hidden" asp-for="employee.Id" />
+    <div class="row">
+        <div class=" col-lg-2 col-xs-12">
+            <label for="fname">First Name</label>
+
+
+            <input type="text" id="fname" class="form-control" asp-for="employee.FName" />
+            <span asp-validation-for="employee.FName" class="validation"></span>
+
+        </div>
+        <div class="col-lg-offset-1 col-lg-2 col-xs-12">
+            <label for="sname">Secound Name</label>
+
+            <input type="text" id="sname" class="form-control" asp-for="employee.SName" />
+            <span asp-validation-for="employee.SName" class="validation"></span>
+
+        </div>
+        <div class="col-lg-offset-1 col-lg-2 col-xs-12">
+            <label for="tname">Third Name</label>
+
+            <input type="text" id="tname" class="form-control" asp-for="employee.MName" />
+            <span asp-validation-for="employee.MName" class="validation"></span>
+
+        </div>
+        <div class="col-lg-offset-1 col-lg-2 col-xs-12">
+            <label for="lname">Last Name</label>
+
+            <input type="text" id="lname" class="form-control" asp-for="employee.LName" />
+            <span asp-validation-for="employee.LName" class="validation"></span>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2 col-xs-12">
+            <label for="Bname">Birth Date</label>
+
+            <input type="date" id="Bname" class="form-control" asp-for="employee.BDate" />
+            <span asp-validation-for="employee.BDate" class="validation"></span>
+
+        </div>
+        <div class="col-lg-offset-1 col-lg-2 col-xs-12">
+            <label for="email">Email</label>
+
+            <input type="text" id="email" class="form-control" asp-for="employee.Email" pattern="example@gmail.com" />
+            <span asp-validation-for="employee.Email" class="validation"></span>
+
+        </div>
+        <div class="col-lg-offset-1 col-lg-2 col-xs-12">
+            <label for="salary">Salary</label>
+
+            <input type="text" id="salary" class="form-control" asp-for="employee.Salary" />
+            <span asp-validation-for="employee.Salary" class="validation"></span>
+
+        </div>
+        <div class="col-lg-offset-1 col-lg-2 col-xs-12">
+            <label for="project_Id">Project</label>
+
+            <input type="text" asp-for="project.Name" class="form-control" id="project_Name" disabled />
+            <input type="hidden" value=@Model.project.Id asp-for="employee.Project_Id" />
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-2 col-xs-12">
+            <label for="ddlCountry">Country</label>
+
+            <select asp-items='new SelectList(Model.licountries,"Id","Name")' id="ddlCountry" asp-for="employee.Country_Id" class="form-control"></select>
+        </div>
+
+        <div class="col-lg-offset-1 col-lg-2 col-xs-12">
+            <label for="ddlCity">City</label>
+
+            <select id="ddlCity" asp-for="employee.City_Id" class="form-control"></select>
+        </div>
+        <div class="col-lg-offset-1 col-lg-2 col-xs-12">
+            <label for="dllgender">Gender</label>
+
+            <select asp-items='new SelectList(Model.gender,"Id","Name")' id="dllgender" asp-for="employee.Gender_Id" class="form-control"></select>
+        </div>
+
+        <div class="col-lg-offset-1 col-lg-2 col-xs-12">
+            <label for="dllposition">Position</label>
+
+            <select asp-items='new SelectList(Model.pisition,"Id","Name")' id="dllposition" asp-for="employee.Position_Id" class="form-control">
+            </select>
+        </div>
+    </div>
+    <div class="row">
+
+        @if (@ViewData["emp"] == "2")
+        {
+            <div class="col-lg-1">
+                <input type="submit" value="Update" class="btn btn-primary" asp-action="Update" />
+            </div>
+        }
+        else
+        { <div class="col-lg-1">
+                <input type="submit" value="Save" class="btn btn-primary" asp-action="AddEmployee" />
+            </div>
+        }
+        <div class="col-lg-1">
+            <a asp-action="index" asp-route-project_id=@Model.project.Id><label class="btn btn-danger">Cancel </label></a>
+        </div>
+    </div>
+</form>
+

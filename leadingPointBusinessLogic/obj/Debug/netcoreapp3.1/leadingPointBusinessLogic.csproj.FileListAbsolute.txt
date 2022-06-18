@@ -1,0 +1,16 @@
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointBusinessLogic\bin\Debug\netcoreapp3.1\leadingPointBusinessLogic.deps.json
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointBusinessLogic\bin\Debug\netcoreapp3.1\leadingPointBusinessLogic.dll
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointBusinessLogic\bin\Debug\netcoreapp3.1\leadingPointBusinessLogic.pdb
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointBusinessLogic\obj\Debug\netcoreapp3.1\leadingPointBusinessLogic.csproj.AssemblyReference.cache
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointBusinessLogic\obj\Debug\netcoreapp3.1\leadingPointBusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointBusinessLogic\obj\Debug\netcoreapp3.1\leadingPointBusinessLogic.AssemblyInfoInputs.cache
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointBusinessLogic\obj\Debug\netcoreapp3.1\leadingPointBusinessLogic.AssemblyInfo.cs
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointBusinessLogic\obj\Debug\netcoreapp3.1\leadingPointBusinessLogic.csproj.CoreCompileInputs.cache
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointBusinessLogic\obj\Debug\netcoreapp3.1\leadingPointBusinessLogic.dll
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointBusinessLogic\obj\Debug\netcoreapp3.1\leadingPointBusinessLogic.pdb
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointBusinessLogic\bin\Debug\netcoreapp3.1\leadingPointDataAccess.dll
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointBusinessLogic\bin\Debug\netcoreapp3.1\leadingPointDataAccess.pdb
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointBusinessLogic\obj\Debug\netcoreapp3.1\leadingPointBusinessLogic.csproj.CopyComplete
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointBusinessLogic\bin\Debug\netcoreapp3.1\leadingPointBusinessLogic.runtimeconfig.json
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointBusinessLogic\bin\Debug\netcoreapp3.1\leadingPointBusinessLogic.runtimeconfig.dev.json
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointBusinessLogic\obj\Debug\netcoreapp3.1\leadingPointBusinessLogic.genruntimeconfig.cache

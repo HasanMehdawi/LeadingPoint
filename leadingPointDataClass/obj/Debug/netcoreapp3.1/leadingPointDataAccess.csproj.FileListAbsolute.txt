@@ -1,0 +1,13 @@
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointDataClass\bin\Debug\netcoreapp3.1\leadingPointDataAccess.deps.json
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointDataClass\bin\Debug\netcoreapp3.1\leadingPointDataAccess.runtimeconfig.json
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointDataClass\bin\Debug\netcoreapp3.1\leadingPointDataAccess.runtimeconfig.dev.json
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointDataClass\bin\Debug\netcoreapp3.1\leadingPointDataAccess.dll
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointDataClass\bin\Debug\netcoreapp3.1\leadingPointDataAccess.pdb
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointDataClass\obj\Debug\netcoreapp3.1\leadingPointDataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointDataClass\obj\Debug\netcoreapp3.1\leadingPointDataAccess.AssemblyInfoInputs.cache
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointDataClass\obj\Debug\netcoreapp3.1\leadingPointDataAccess.AssemblyInfo.cs
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointDataClass\obj\Debug\netcoreapp3.1\leadingPointDataAccess.csproj.CoreCompileInputs.cache
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointDataClass\obj\Debug\netcoreapp3.1\leadingPointDataAccess.dll
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointDataClass\obj\Debug\netcoreapp3.1\leadingPointDataAccess.pdb
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointDataClass\obj\Debug\netcoreapp3.1\leadingPointDataAccess.genruntimeconfig.cache
+C:\inetpub\wwwroot\leadingpointSystem\leadingPointDataClass\obj\Debug\netcoreapp3.1\leadingPointDataAccess.csproj.AssemblyReference.cache

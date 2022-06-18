@@ -1,0 +1,116 @@
+﻿@model Vmproject
+@using leadingPointDataClass.Entity
+@{
+    Layout = "~/Views/Shared/LayoutViewPage.cshtml";
+}
+<script>
+
+
+    $(document).ready(function () {
+        $(".Edit").click(function () {
+
+            var project_Id = $(this).parent().parent().find(".project_id").text()
+            $.ajax({
+                type: 'get',
+                url: '/leadingpointView/project/edit?id=' + project_Id,
+
+                success: function (data) {
+                    $("#p_Id").val(data.id)
+                    $("#Project_Name").val(data.name)
+                },
+                error: function () {
+                    alert("Error")
+                }
+            })
+            $("#AddProject").modal("show");
+
+            $(".save").each(function () {
+                $(this).hide()
+            })
+            $(".update").each(function () {
+                $(this).show()
+            })
+        })
+        
+       
+
+        $(".create").click(function () {
+            $(".save").each(function () {
+                $(this).show()
+            })
+            $(".update").each(function () {
+                $(this).hide()
+            })
+            $("#p_Id").val(0)
+            $("#Project_Name").val("")
+        })
+    
+    })
+</script>
+<div class="row title">
+    <div class="col-lg-3">
+        <h4>Projects List</h4>
+    </div>
+    <div class="col-lg-offset-6 col-lg-1">
+        <button class="btn btn-primary create" style=" padding: 5px,10px;" data-target="#AddProject" data-toggle="modal">Craete</button>
+    </div>
+</div>
+
+<div class="modal fade" id="AddProject" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close exit" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title save">Add New Project</h4>
+                <h4 class="modal-title update">Edit Project</h4>
+            </div>
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="project.Id" id="p_Id" />
+                    <div class="form-group">
+                        <lable for="Project_Name">Project Name</lable>
+                        <input type="text" class="form-control" placeholder="Project Name" id="Project_Name" asp-for="project.Name" required/>
+                        <span asp-validation-for="project.Name"></span>
+                    </div>
+
+
+                    <input type="submit" value="Save" asp-action="save" class="btn btn-primary save" />
+                    <input type="submit" value="Update" asp-action="update" class="btn btn-primary update"  style="display:none"/>
+
+                    <button class="btn exit" data-dismiss="modal">Close</button>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-active table-bordered table-striped" style="margin-top:15px;" >
+            <thead>
+                <tr>
+                    <th>Project Id</th>
+                    <th>Project Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(Project item in Model.Liproject)
+            {
+                    <tr>
+                        <td class="project_id">@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>
+                        
+                            <span class="glyphicon glyphicon-cog Edit btn"></span>
+                            <a asp-action="index" asp-controller="Employee" asp-route-project_id=@item.Id><label class="btn btn-primary"><span class="glyphicon glyphicon-user"></span> Show Employee</label></a>
+                        </td>
+                    </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
